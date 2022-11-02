@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {Recipe} from "./recipe.model";
 import {Ingredient} from "../shared/ingredient.model";
+import {ShoppingListService} from "../shopping-list/shopping-list.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,16 @@ export class RecipeService {
       'Nice meat with bread and souce',
       'https://shaormeriabaneasa.ro/wp-content/uploads/detaliu-shaorma-la-farfurie-cu-vita%CC%86.jpg',
       [new Ingredient('Meat', 1), new Ingredient('Buns',20)])];
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   getRecipes()  {
     // returns a copy not the real reference
     return this.recipes.slice();
   }
+
+  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+      for(let ingredient of ingredients) {
+        this.shoppingListService.addIngredients(ingredient);
+      }
+    }
 }

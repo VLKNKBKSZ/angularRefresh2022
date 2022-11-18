@@ -7,8 +7,10 @@
 <div class="row">
   <div class="col-xs-12">
     <app-recipe-item
-      *ngFor="let element of recipes"
+      *ngFor="let element of recipes; let i = index"
       [recipe]="element"
+      [index]="i"
+      routerLinkActive="active"
     ></app-recipe-item>
   </div>
 </div>

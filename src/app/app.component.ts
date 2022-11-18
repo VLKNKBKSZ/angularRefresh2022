@@ -7,11 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class AppComponent {
 
-  @Input() loadedFeature:string = 'recipe';
-
   title = "my-app";
-
-  showFeature(feature: string) {
-    this.loadedFeature = feature;
-  }
 }

@@ -20,6 +20,6 @@ export class ShoppingEditComponent implements OnInit {
 
   addShopping() {
     let ingredient = new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value);
-    this.shoppplinglistService.addIngredients(ingredient);
+    this.shoppplinglistService.addIngredient(ingredient);
   }
 }
